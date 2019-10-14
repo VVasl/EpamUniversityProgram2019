@@ -4,22 +4,25 @@ namespace Exceptions
 {
     public class ExceptionSituations
     {
-        public static void Recurse(int remaining)
+        private const int MAX_RECURSIVE_CALLS = 1000;
+        static int counter = 0;
+
+        public static void Recurse()
         {
-            if (remaining <= 0)
-            {
-                return;
-            }
-            Recurse(remaining - 1);
+            counter++;
+            if (counter <= MAX_RECURSIVE_CALLS)
+                Recurse();
+            else
+                throw new StackOverflowException("Detected unhandled exception: Stack overflow.");
         }
 
-        public static void WriteArray(int n)
+        public static void InstantiateArray(int n, int maxValue)
         {
             int[] array = new int[n];
-
+            Random rnd = new Random();
             for (int i = 0; i <= array.Length; i++)
             {
-                Console.WriteLine(array[i]);
+                array[i] = rnd.Next(0, maxValue + 1);
             }
         }
 
