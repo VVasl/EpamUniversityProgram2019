@@ -56,13 +56,13 @@ namespace ConsoleApp
                 Console.WriteLine($"The result of multiplication: {multiplicationResult}");
             }
             catch (System.ArgumentException e)
-            when (a < 0)
+            when (e.ParamName == "a")
             {
                 Console.WriteLine(e.Message);
             }
 
             catch (System.ArgumentException e)
-            when (b > 0)
+            when (e.ParamName == "b")
             {
                 Console.WriteLine(e.Message);
             }
