@@ -30,7 +30,7 @@ namespace ConsoleApp
 
             try
             {
-                ExceptionSituations.WriteArray(n, 100);
+                ExceptionSituations.InstantiateArray(n, 100);
             }
             catch (System.IndexOutOfRangeException e)
             {
