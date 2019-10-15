@@ -6,7 +6,7 @@ namespace ConsoleApp
 {
     public partial class ConsoleService : IConsoleService
     {
-        public void RunTasks()
+        public  void RunTasks()
         {
             List<Action> functions = new List<Action>();
             //functions.Add(RunPersonTask);
@@ -14,9 +14,13 @@ namespace ConsoleApp
             //functions.Add(RunMonthNameTask);
             //functions.Add(RunOrderedColorsTask);
             //functions.Add(RunMinMaxLongValueTask);
-            functions.Add(StackOverflowExceptionTask);
-            functions.Add(IndexOutOfRangeExceptionTask);
-            functions.Add(ArgumentExceptionTask);
+
+            //functions.Add(StackOverflowExceptionTask);
+            //functions.Add(IndexOutOfRangeExceptionTask);
+            //functions.Add(ArgumentExceptionTask);
+
+            functions.Add(FileContentTask);
+            functions.Add(TxtFileSearcherTask);
 
 
             foreach (Action func in functions)
