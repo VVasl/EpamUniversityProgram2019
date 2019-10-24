@@ -6,9 +6,9 @@ namespace Common
 {
     public class MessageLogService : IReader, IWriter 
     {
-        public void Write(string message)
+        public void Write(string msg)
         {
-            Console.WriteLine(message);
+            Console.WriteLine(msg);
         }
 
         public string Read()
