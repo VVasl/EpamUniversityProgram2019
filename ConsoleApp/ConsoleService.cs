@@ -22,11 +22,11 @@ namespace ConsoleApp
             //functions.Add(FileContentTask);
             //functions.Add(TxtFileSearcherTask);
 
-            //functions.Add(WriteInfo);
+            functions.Add(WriteInfo);
 
-            functions.Add(RunBinary);
-            functions.Add(RunJson);
-            functions.Add(RunXml);
+            //functions.Add(RunBinary);
+            //functions.Add(RunJson);
+            //functions.Add(RunXml);
 
 
             foreach (Action func in functions)
