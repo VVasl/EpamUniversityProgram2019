@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace StructsAndEnums.Enums
 {
-    enum Months
+    using System;
+    public enum Months
     {
         January = 1,
         February,

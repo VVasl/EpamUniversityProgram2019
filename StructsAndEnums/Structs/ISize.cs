@@ -2,7 +2,7 @@
 
 namespace StructsAndEnums.Structs
 {
-    interface ISize
+    public interface ISize
     {
         double Width { get; set; }
         double Height { get; set; }

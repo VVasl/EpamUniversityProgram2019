@@ -1,32 +1,37 @@
-﻿using System;
+﻿
 
 namespace StructsAndEnums.Structs
 {
+    using System;
     public struct Rectangle : ISize, ICoordinates
     {
-        private double _width;
-        private double _height;
+        private double width;
+        private double height;
 
         public double Width
         {
-            get { return _width; }
+            get { return this.width; }
             set
             {
                 if (value < 0)
-                    throw new ArgumentOutOfRangeException(
-                       $"{nameof(value)} must be positive.");
-                _width = value;
+                {
+                    throw new ArgumentOutOfRangeException($"{nameof(value)} must be positive.");
+                }
+                    
+                this.width = value;
             }
         }
         public double Height
         {
-            get { return _height; }
+            get { return this.height; }
             set
             {
                 if (value < 0)
-                    throw new ArgumentOutOfRangeException(
-                       $"{nameof(value)} must be positive.");
-                _height = value;
+                {
+                    throw new ArgumentOutOfRangeException($"{nameof(value)} must be positive.");
+                }
+                    
+                this.height = value;
             }
         }
         public double X { get; set; }
@@ -34,7 +39,7 @@ namespace StructsAndEnums.Structs
 
         public double Perimeter()
         {
-            return 2 * (Width + Height);
+            return 2 * (this.Width + this.Height);
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+
 
 namespace StructsAndEnums.Enums
 {
+    using System;
     public enum Colors
     {
         Red = 5,
