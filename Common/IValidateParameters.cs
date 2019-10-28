@@ -6,6 +6,6 @@ namespace Common
 {
      public interface IValidateParameters
     {
-         bool Validate();
+         bool Validate(string source);
     }
 }

@@ -8,8 +8,17 @@ namespace FileSystem
 {
     public class TxtFileSearcher : IValidateParameters
     {
+        public TxtFileSearcher(string sourceDirectory, string partialNameOfFile)
+        {
+            if(Validate(sourceDirectory) && Validate(partialNameOfFile))
+            {
+                this.SourceDirectory = sourceDirectory;
+                this.PartialNameOfFile = partialNameOfFile;
+            }
+        }
         public string SourceDirectory { get; set; }
         public string PartialNameOfFile { get; set; }
+
         public void SearchTxtFiles( IWriter writer)
         { 
             try
@@ -21,31 +30,38 @@ namespace FileSystem
                     if (currentFile.Contains(PartialNameOfFile, StringComparison.CurrentCultureIgnoreCase)){
                         writer.Write(currentFile);
                     }
+                    else
+                    {
+                        writer.Write("File does not found.");
+                    }
                 }
              }
+            catch (DirectoryNotFoundException dirEx)
+            {
+                Console.WriteLine(dirEx.Message);
+                throw new DirectoryNotFoundException("Directory not found: " + dirEx.Message);
+            }
+
+            catch (FileNotFoundException fileEx)
+            {
+                Console.WriteLine(fileEx.Message);
+                throw new FileNotFoundException("File not found: " + fileEx.Message);
+            }
+
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
 
-        public bool Validate()
+        public bool Validate(string source)
         {
             var isValid = true;
 
-            if (string.IsNullOrWhiteSpace(SourceDirectory) || SourceDirectory.Trim().Length == 0)
-            {
-                isValid = false;
+            if (string.IsNullOrWhiteSpace(source) || source.Trim().Length == 0)
+            { 
                 throw new ArgumentException("String can't be null or empty.");
             }
-
-            if (string.IsNullOrWhiteSpace(PartialNameOfFile) || PartialNameOfFile.Trim().Length == 0)
-            {
-                isValid = false;
-                throw new ArgumentException("String can't be null or empty.");
-            }
-
-
             return isValid;
         }
     }

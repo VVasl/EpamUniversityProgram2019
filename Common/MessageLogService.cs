@@ -10,6 +10,11 @@ namespace Common
         {
             Console.WriteLine(msg);
         }
+        public void Show(Int32 indent, String format, params Object[] args)
+        {
+            Console.WriteLine(new String(' ', 3 * indent) + format, args);
+
+        }
 
         public string Read()
         {
