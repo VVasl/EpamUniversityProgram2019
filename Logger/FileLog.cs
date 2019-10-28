@@ -8,11 +8,12 @@ namespace Logger
     class FileLog : Log
     {
         private string MessageExePath { get; set; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        private string fileForLogging = String.Empty;
-        public FileLog(LogLevel level, string message) : base(level, message)
-        {}
-        private string GetFileName()
+
+        public FileLog() : base(){}
+        public FileLog(LogLevel level, string message) : base(level, message){}
+        public  string GetFileName()
         {
+            string fileForLogging = String.Empty;
             var builder = new ConfigurationBuilder()
                 .SetBasePath(MessageExePath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
@@ -21,8 +22,7 @@ namespace Logger
             fileForLogging = configuration["fileForLogging"];
             return fileForLogging;
         }
-
-
+        
         public override void Write()
         {
             string file = GetFileName();

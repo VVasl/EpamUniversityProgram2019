@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Configuration;
 using System.IO;
-using System.Reflection;
-
 
 namespace Logger
 {
@@ -115,13 +112,18 @@ namespace Logger
                     break;
             }
         }
-        //public void Read(StreamReader r)
-        //{
-        //    string line;
-        //    while ((line = r.ReadLine()) != null)
-        //    {
-        //        Console.WriteLine(line);
-        //    }
-        //}
+
+        public void ReadFromLogFile()
+        {
+            FileLog log = new FileLog();
+            using (StreamReader r = new StreamReader(log.GetFileName()))
+            {
+                string line;
+                while ((line = r.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+            }   
+        }
     }
 }

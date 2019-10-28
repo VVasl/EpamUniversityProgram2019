@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace Logger
+﻿namespace Logger
 {
     public enum Operation
     {

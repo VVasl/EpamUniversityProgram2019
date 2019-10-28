@@ -4,25 +4,23 @@ using System.Text;
 
 namespace Logger
 {
-     abstract class Log 
+    abstract class Log 
     {
+        protected Log(){}
+
+        protected Log(LogLevel level, string message)
+        {
+            this.Level = level;
+            this.Message = message;
+            this.CreationDateTime = DateTime.Now;
+        }
+
         public LogLevel Level { get; set; }
 
         public string Message { get; set; }
 
         public DateTime CreationDateTime { get; set; }
         
-
-        public Log(LogLevel level, string message)
-        {
-            Level = level;
-            Message = message;
-            CreationDateTime = DateTime.Now;
-        }
-
-        //  bool IsEnabled(LogLevel logLevel);
-        // void Read(StreamReader r);
-
         public string BuildLog()
         {
             var logBuilder = new StringBuilder();
@@ -48,6 +46,5 @@ namespace Logger
         }
 
         abstract public void Write();
-
     }  
 }
