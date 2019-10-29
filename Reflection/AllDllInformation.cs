@@ -1,27 +1,29 @@
 ﻿
 using System;
+using Common;
 using System.Reflection;
 
 namespace Reflection
 {
     public class AllDllInformation
     {
-        private string AssemblyName { get; set; }
-
         public AllDllInformation(string assemblyName)
         {
-            AssemblyName = assemblyName;
+            this.AssemblyName = assemblyName;
 
         }
-        public void GetAllInfo()
+
+        private string AssemblyName { get; set; }
+
+        public void GetAllInfo(IWriter writer)
         {
             Assembly assembly = Assembly.LoadFrom(AssemblyName);
-            Show(0, "\tAssembly: {0}\n", assembly);
+            writer.Show(0, "\tAssembly: {0}", assembly);
 
             
             foreach (Type t in assembly.ExportedTypes)
             {
-                Show(1, "\nType: {0}", t);
+                writer.Show(1, "\nType: {0}", t);
 
                 foreach (MemberInfo mi in t.GetMembers())
                 {
@@ -32,15 +34,9 @@ namespace Reflection
                     if (mi is ConstructorInfo) typeName = "ConstructoInfo";
                     if (mi is PropertyInfo) typeName = "PropertyInfo";
                     if (mi is EventInfo) typeName = "EventInfo";
-                    Show(2, "{0}: {1}", typeName, mi);
+                    writer.Show(2, "{0}: {1}", typeName, mi);
                 }
             }
-        }
-
-        static void Show(Int32 indent, String format, params Object[] args)
-        {
-            Console.WriteLine(new String(' ', 3 * indent) + format, args);
-
         }
     }
 }
