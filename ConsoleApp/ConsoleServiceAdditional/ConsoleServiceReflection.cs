@@ -13,9 +13,9 @@ namespace ConsoleApp
         private const string AssemblyName = "StructsAndEnums.dll";
         private void WriteInfo()
         {
-            Console.WriteLine("\t\tReflection Task : Write into console all assembly information");
+            Console.WriteLine("\tReflection Task : Write into console all assembly information");
             AllDllInformation info = new AllDllInformation(AssemblyName);
-            info.GetAllInfo();
+            info.GetAllInfo(new MessageLogService());
         }
     }   
 }

@@ -18,8 +18,6 @@ namespace ConsoleApp
             {
                 Console.WriteLine(e.Message);
             }
-
-            
         }
 
         private void IndexOutOfRangeExceptionTask()
@@ -33,6 +31,10 @@ namespace ConsoleApp
                 ExceptionSituations.InstantiateArray(n, 100);
             }
             catch (System.IndexOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
