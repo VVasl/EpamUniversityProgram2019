@@ -2,7 +2,7 @@
 
 namespace Exceptions
 {
-    public class ExceptionSituations
+    public static class ExceptionSituations
     {
         private const int MAX_RECURSIVE_CALLS = 1000;
         static int counter = 0;
