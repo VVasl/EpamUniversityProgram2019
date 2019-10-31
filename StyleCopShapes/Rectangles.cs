@@ -31,12 +31,16 @@
         /// <returns>New rectangle.</returns>
         public Rectangle FindIntersectionOfShapes()
         {
-            double leftBottomX = Math.Min(this.ShapeOne.BottomLeftCoordinate.X, this.ShapeTwo.BottomLeftCoordinate.X);
-            double leftBottomY = Math.Min(this.ShapeOne.BottomLeftCoordinate.Y, this.ShapeTwo.BottomLeftCoordinate.Y);
-            double rightTopX = Math.Max(this.ShapeOne.BottomLeftCoordinate.X + this.ShapeOne.WidthOfRectangle, this.ShapeTwo.BottomLeftCoordinate.X + this.ShapeTwo.WidthOfRectangle);
-            double rightTopY = Math.Max(this.ShapeOne.BottomLeftCoordinate.Y + this.ShapeOne.HeightOfRectangle, this.ShapeTwo.BottomLeftCoordinate.Y + this.ShapeTwo.HeightOfRectangle);
+            double leftBottomX = Math.Max(this.ShapeOne.BottomLeftCoordinate.X, this.ShapeTwo.BottomLeftCoordinate.X);
+            double leftBottomY = Math.Max(this.ShapeOne.BottomLeftCoordinate.Y, this.ShapeTwo.BottomLeftCoordinate.Y);
+            double rightTopX = Math.Min(this.ShapeOne.BottomLeftCoordinate.X + this.ShapeOne.WidthOfRectangle, this.ShapeTwo.BottomLeftCoordinate.X + this.ShapeTwo.WidthOfRectangle);
+            double rightTopY = Math.Min(this.ShapeOne.BottomLeftCoordinate.Y + this.ShapeOne.HeightOfRectangle, this.ShapeTwo.BottomLeftCoordinate.Y + this.ShapeTwo.HeightOfRectangle);
+            if (rightTopX >= leftBottomX && rightTopY >= leftBottomY)
+            {
+                return new Rectangle(new Point(leftBottomX, leftBottomY), rightTopX - leftBottomX, rightTopY - leftBottomY);
+            }
 
-            return new Rectangle(new Point(leftBottomX, leftBottomY), rightTopX - leftBottomX, rightTopY - leftBottomY);
+            return null;
         }
 
         /// <summary>
