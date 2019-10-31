@@ -4,7 +4,7 @@
 // </copyright>
 // <author>Vasyltsiv Viktoriia</author>
 //-----------------------------------------------------------------------
-namespace StyleCop
+namespace StyleCopShapes
 {
     using System;
 
@@ -16,8 +16,8 @@ namespace StyleCop
     /// </summary>
     public class Rectangle 
     {
-        private int widthOfRectangle;
-        private int heightOfRectangle;
+        private double widthOfRectangle;
+        private double heightOfRectangle;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Rectangle"/> class.
@@ -26,7 +26,7 @@ namespace StyleCop
         /// <param name="bottomLeftCoordinate">Left-bottom point of rectangle.</param>
         /// <param name="widthOfRectangle">Length of top and bottom sides of rectangle.</param>
         /// <param name="heightOfRectangle">Length of left and right sides of rectangle.</param>
-        public Rectangle(Point bottomLeftCoordinate, int widthOfRectangle, int heightOfRectangle)
+        public Rectangle(Point bottomLeftCoordinate, double widthOfRectangle, double heightOfRectangle)
         {
             this.BottomLeftCoordinate = bottomLeftCoordinate;
             this.WidthOfRectangle = widthOfRectangle;
@@ -36,15 +36,18 @@ namespace StyleCop
         /// <summary>
         /// Gets or sets the bottom-left coordinate of this Rectangle class.
         /// </summary>
-        private Point BottomLeftCoordinate { get; set; }
+        public Point BottomLeftCoordinate { get; set; }
 
         /// <summary>
         /// Gets or sets the width of this Rectangle class.
         /// </summary>
-       // private int WidthOfRectangle { get; set; }
-        public int WidthOfRectangle
+        public double WidthOfRectangle
         {
-            get { return this.widthOfRectangle; }
+            get 
+            { 
+                return this.widthOfRectangle; 
+            }
+
             set
             {
                 if (value < 0)
@@ -59,9 +62,13 @@ namespace StyleCop
         /// <summary>
         /// Gets or sets the height of this Rectangle class.
         /// </summary>
-        private int HeightOfRectangle
+        public double HeightOfRectangle
         {
-            get { return this.heightOfRectangle; }
+            get 
+            { 
+                return this.heightOfRectangle; 
+            }
+
             set
             {
                 if (value < 0)
@@ -69,66 +76,30 @@ namespace StyleCop
                     throw new ArgumentOutOfRangeException($"{nameof(value)} must be positive.");
                 }
 
-                this.HeightOfRectangle = value;
+                this.heightOfRectangle = value;
             }
         }
-
-        /// <summary>
-        /// Method computes the smallest rectangle that contains two given rectangles  
-        /// </summary>
-        /// <param name="first">First rectangle.</param>
-        /// <param name="second">Second rectangle.</param>
-        /// <returns>New rectangle.</returns>
-        public static Rectangle FindTheSmallestRectangle(Rectangle first, Rectangle second)
-        {
-            int leftBottomX = Math.Min(first.BottomLeftCoordinate.X, second.BottomLeftCoordinate.X);
-            int leftBottomY = Math.Min(first.BottomLeftCoordinate.Y, second.BottomLeftCoordinate.Y);
-            int rightTopX = Math.Max(first.BottomLeftCoordinate.X + first.WidthOfRectangle, second.BottomLeftCoordinate.X + second.WidthOfRectangle);
-            int rightTopY = Math.Max(first.BottomLeftCoordinate.Y + first.HeightOfRectangle, second.BottomLeftCoordinate.Y + second.HeightOfRectangle);
-
-            return new Rectangle(new Point(leftBottomX, leftBottomY), rightTopX - leftBottomX, rightTopY - leftBottomY);
-        }
-
-        /// <summary>
-        /// Method returns the intersecting rectangle formed by the given two rectangles.
-        /// </summary>
-        /// <param name="first">First rectangle.</param>
-        /// <param name="second">Second rectangle.</param>
-        /// <returns>New rectangle.</returns>
-        public static Rectangle FindIntersectionRectangle(Rectangle first, Rectangle second)
-        {
-            int leftBottomX = Math.Max(first.BottomLeftCoordinate.X, second.BottomLeftCoordinate.X);
-            int leftBottomY = Math.Max(first.BottomLeftCoordinate.Y, second.BottomLeftCoordinate.Y);
-            int rightTopX = Math.Min(first.BottomLeftCoordinate.X + first.WidthOfRectangle, second.BottomLeftCoordinate.X + second.WidthOfRectangle);
-            int rightTopY = Math.Min(first.BottomLeftCoordinate.Y + first.HeightOfRectangle, second.BottomLeftCoordinate.Y + second.HeightOfRectangle);
-            if (rightTopX >= leftBottomX && rightTopY >= leftBottomY)
-            {
-                return new Rectangle(new Point(leftBottomX, leftBottomY), rightTopX - leftBottomX, rightTopY - leftBottomY);
-            }
-
-            return null;
-        }
-
+        
         /// <summary>
         /// Method moves rectangle in appropriate direction.
         /// </summary>
         /// <param name="movementAlongX">Value that will change X coordinate of left-bottom point.</param>
         /// <param name="movementAlongY">Value that will change Y coordinate of left-bottom point.</param>
-        public void MoveAlongAxis(int movementAlongX, int movementAlongY)
+        /// <returns>Modified instance of the class.</returns>
+        public Rectangle MoveAlongAxis(double movementAlongX, double movementAlongY)
         {
-            this.BottomLeftCoordinate.X += movementAlongX;
-            this.BottomLeftCoordinate.Y += movementAlongY;
+            return new Rectangle(new Point(this.BottomLeftCoordinate.X + movementAlongX, this.BottomLeftCoordinate.Y + movementAlongY), this.WidthOfRectangle, this.HeightOfRectangle);
         }
 
         /// <summary>
         /// Method changes size of rectangle.
         /// </summary>
-        /// <param name="changeWidth">New value of width in rectangle.</param>
-        /// <param name="changeHeight">New value of height in rectangle.</param>
-        public void Resize(int changeWidth, int changeHeight)
+        /// <param name="changedWidth">New value of width in rectangle.</param>
+        /// <param name="changedHeight">New value of height in rectangle.</param>
+        /// <returns>Modified instance of the class.</returns>
+        public Rectangle Resize(double changedWidth, double changedHeight)
         {
-            this.HeightOfRectangle += changeWidth;
-            this.WidthOfRectangle += changeHeight;
+            return new Rectangle(new Point(this.BottomLeftCoordinate.X, this.BottomLeftCoordinate.Y), this.WidthOfRectangle + changedWidth, this.HeightOfRectangle + changedHeight);
         }
 
         /// <summary>

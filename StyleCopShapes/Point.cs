@@ -5,7 +5,7 @@
 // <author>Vasyltsiv Viktoriia</author>
 //-----------------------------------------------------------------------
 
-namespace StyleCop
+namespace StyleCopShapes
 {
     /// <summary>
     /// Represents an ordered pair of integer x- and y-coordinates that defines a point in a two-dimensional plane.
@@ -18,7 +18,7 @@ namespace StyleCop
         /// </summary>
         /// <param name="x">Value to be assigned to X.</param>
         /// <param name="y">Value to be assigned to Y.</param>
-        public Point(int x, int y)
+        public Point(double x, double y)
         {
             this.X = x;
             this.Y = y;
@@ -27,11 +27,11 @@ namespace StyleCop
         /// <summary>
         /// Gets or sets the x-coordinate of a point.
         /// </summary>
-        public int X { get; set; }
+        public double X { get; set; }
 
         /// <summary>
         /// Gets or sets the y-coordinate of a point.
         /// </summary>
-        public int Y { get; set; }
+        public double Y { get; set; }
     }
 }
