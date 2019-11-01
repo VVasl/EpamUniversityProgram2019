@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reflection", "Reflection\Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniqueValuesInExcelFile", "UniqueValuesInExcelFile\UniqueValuesInExcelFile.csproj", "{1AC20878-A860-4721-BCD7-347F6DFFA011}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleCopShapes", "StyleCopShapes\StyleCopShapes.csproj", "{54B285EC-E472-4FF9-AAB0-FD0F3AB3C3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StyleCopShapes", "StyleCopShapes\StyleCopShapes.csproj", "{54B285EC-E472-4FF9-AAB0-FD0F3AB3C3B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calc", "Calc\Calc.csproj", "{67218EB0-EBDD-4906-AE94-551070DE184E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{54B285EC-E472-4FF9-AAB0-FD0F3AB3C3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54B285EC-E472-4FF9-AAB0-FD0F3AB3C3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54B285EC-E472-4FF9-AAB0-FD0F3AB3C3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67218EB0-EBDD-4906-AE94-551070DE184E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67218EB0-EBDD-4906-AE94-551070DE184E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67218EB0-EBDD-4906-AE94-551070DE184E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67218EB0-EBDD-4906-AE94-551070DE184E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
