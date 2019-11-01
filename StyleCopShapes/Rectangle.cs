@@ -52,7 +52,7 @@ namespace StyleCopShapes
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException($"{nameof(value)} must be positive.");
+                    throw new ArgumentOutOfRangeException($"{nameof(WidthOfRectangle)} must be positive.");
                 }
 
                 this.widthOfRectangle = value;
@@ -73,7 +73,7 @@ namespace StyleCopShapes
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException($"{nameof(value)} must be positive.");
+                    throw new ArgumentOutOfRangeException($"{nameof(HeightOfRectangle)} must be positive.");
                 }
 
                 this.heightOfRectangle = value;

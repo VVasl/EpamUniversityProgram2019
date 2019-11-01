@@ -25,7 +25,7 @@
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException($"{nameof(value)} must be positive.");
+                    throw new ArgumentOutOfRangeException($"{nameof(Radius)} must be positive.");
                 }
 
                 this.radius = value;
