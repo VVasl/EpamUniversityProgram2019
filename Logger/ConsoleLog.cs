@@ -5,13 +5,16 @@ namespace Logger
 {
     class ConsoleLog : Log
     {
+        private IWriter writer;
+
         public ConsoleLog(LogLevel level, string message) : base(level, message)
-        { }
+        {
+            this.writer = new ConsoleInputOutput();
+        }
 
         public override void Write()
         {
-            MessageLogService writer = new MessageLogService();
-            writer.Write(BuildLog());
+            this.writer.Write(BuildLog());
         }
 
     }
