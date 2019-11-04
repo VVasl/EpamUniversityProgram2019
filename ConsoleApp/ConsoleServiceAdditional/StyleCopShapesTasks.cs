@@ -1,20 +1,10 @@
-﻿using System;
-using Common;
-using StyleCopShapes;
-using NLog;
-
-namespace ConsoleApp
+﻿namespace ConsoleApp
 {
-    public class StyleCopShapesTasks
-    {
-        private IWriter writer;
-        private static Logger logger;
+    using System;
+    using StyleCopShapes;
 
-        public StyleCopShapesTasks()
-        {
-            writer = new ConsoleInputOutput();
-            logger = LogManager.GetCurrentClassLogger();
-        }
+    public class StyleCopShapesTasks : Tasks
+    {
         public void StyleCopRectangleTask()
         {
             logger.Info("StyleCop. Task : Rectangles");

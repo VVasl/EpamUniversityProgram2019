@@ -1,28 +1,12 @@
-﻿using System;
-using FileSystem;
-using Common;
-using System.IO;
-using NLog;
-using Microsoft.Extensions.Configuration;
-
-namespace ConsoleApp
+﻿namespace ConsoleApp
 {
-    public  class FileSystemTasks
+    using System;
+    using FileSystem;
+    using System.IO;
+    using NLog;
+
+    public  class FileSystemTasks : Tasks
     {
-        private IWriter writer;
-        private static Logger logger;
-        private readonly IConfigurationRoot configuration;
-
-        public FileSystemTasks()
-        {
-            this.writer = new ConsoleInputOutput();
-
-            logger = LogManager.GetCurrentClassLogger();
-
-            this.configuration = new ConfigurationBuilder()
-           .SetBasePath(Directory.GetCurrentDirectory())
-           .AddJsonFile("appsettings.json", true, true).Build();
-        }
         public void FileContentTask()
         { 
             this.writer.Write("\n-----Task1-----FileSystem\n\n");

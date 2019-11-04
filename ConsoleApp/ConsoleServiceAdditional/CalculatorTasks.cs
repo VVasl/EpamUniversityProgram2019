@@ -1,5 +1,4 @@
-﻿
-namespace ConsoleApp
+﻿namespace ConsoleApp
 {
     using System;
     using System.IO;

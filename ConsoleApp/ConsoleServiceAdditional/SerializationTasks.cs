@@ -1,30 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.Configuration;
-using Serialization;
-using System.IO;
-using Common;
-namespace ConsoleApp
+﻿namespace ConsoleApp
 {
-    public class SerializationTasks
+    using System;
+    using System.Collections.Generic;
+    using Serialization;
+    using Common;
+
+    public class SerializationTasks : Tasks
     {
         private IEnumerable<Car> car = new List<Car>{
                 new Car{ BrandName = "Mercedes", ModelYear = 2016, Price = 40000, CountryOfCarProducing = "Germany" },
                 new Car{ BrandName = "Toyota", ModelYear = 2012, Price = 10000, CountryOfCarProducing = "Japan" }
             };
-
-        private IWriter writer;
-        private readonly IConfigurationRoot configuration;
-
-        public SerializationTasks()
-        {
-            this.writer = new ConsoleInputOutput();
-
-            this.configuration = new ConfigurationBuilder()
-           .SetBasePath(Directory.GetCurrentDirectory())
-           .AddJsonFile("appsettings.json", true, true).Build();
-        }
-
         public void RunBinary()
         {
             try

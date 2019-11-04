@@ -1,28 +1,21 @@
-﻿using Reflection;
-using Common;
-using Microsoft.Extensions.Configuration;
-using System.IO;
-
-namespace ConsoleApp
+﻿namespace ConsoleApp
 {
-    public class ReflectionTask
+    using Reflection;
+    using Common;
+
+    public class ReflectionTask : Tasks
     {
-        private IWriter writer;
-        private readonly IConfigurationRoot configuration;
+        private IShowMemberInfo memberWriter;
 
         public ReflectionTask()
         {
-            this.writer = new ConsoleInputOutput();
-
-            this.configuration = new ConfigurationBuilder()
-           .SetBasePath(Directory.GetCurrentDirectory())
-           .AddJsonFile("appsettings.json", true, true).Build();
+            this.memberWriter = new ConsoleInputOutput();
         }
         public void WriteInfoTask()
         {
             this.writer.Write("\tReflection Task : Write into console all assembly information");
             AllDllInformation info = new AllDllInformation(this.configuration["assemblyName"]);
-            info.GetAllInfo(this.writer);
+            info.GetAllInfo(this.memberWriter);
         }
     }   
 }

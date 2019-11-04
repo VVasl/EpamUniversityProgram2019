@@ -1,16 +1,10 @@
-﻿using System;
-using Exceptions;
-using Common;
-
-namespace ConsoleApp
+﻿namespace ConsoleApp
 {
-    public class ExceptionsTask
+    using System;
+    using Exceptions;
+
+    public class ExceptionsTask : Tasks
     {
-        private IWriter writer;
-        public ExceptionsTask()
-        {
-            this.writer = new ConsoleInputOutput();
-        }
         public void StackOverflowExceptionTask()
         {
             this.writer.Write("\n-----Task1-----StackOverflowException\n\n");

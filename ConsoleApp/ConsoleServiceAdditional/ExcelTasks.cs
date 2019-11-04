@@ -1,30 +1,11 @@
 ﻿namespace ConsoleApp
 {
     using System;
-    using System.IO;
     using System.Collections.Generic;
     using UniqueValuesInExcelFile;
-    using Microsoft.Extensions.Configuration;
-    using NLog;
-    using Common;
 
-    public class ExcelTasks
+    public class ExcelTasks : Tasks
     {
-        private IWriter writer;
-        private static Logger logger;
-        private readonly IConfigurationRoot configuration;
-
-        public ExcelTasks()
-        {
-            this.writer = new ConsoleInputOutput();
-
-            logger = LogManager.GetCurrentClassLogger();
-
-            this.configuration = new ConfigurationBuilder()
-           .SetBasePath(Directory.GetCurrentDirectory())
-           .AddJsonFile("appsettings.json", true, true).Build();
-        }
-
         public void SearchUniqueValuesInExcelFileTask()
         {
             this.writer.Write("Task: Search for unique values in the excel file.\n");

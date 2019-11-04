@@ -1,18 +1,11 @@
-﻿using System;
-using StructsAndEnums.Enums;
-using StructsAndEnums.Structs;
-using Common;
-
-namespace ConsoleApp
+﻿namespace ConsoleApp
 {
-    public class StructsAndEnumsTasks
-    {
-        private IWriter writer;
+    using System;
+    using StructsAndEnums.Enums;
+    using StructsAndEnums.Structs;
 
-        public StructsAndEnumsTasks()
-        {
-            this.writer = new ConsoleInputOutput();
-        }
+    public class StructsAndEnumsTasks : Tasks
+    {
         public void RunPersonTask()
         {
             try
