@@ -13,17 +13,22 @@ namespace ConsoleApp
         private ReflectionTask info;
         private StyleCopShapesTasks shapes;
         private ExcelTasks excel;
+        private CalculatorTasks calculator;
+        //private AsynchronousTasks thread;
 
         public ConsoleService()
         {
-            structs = new StructsAndEnumsTasks();
-            exception = new ExceptionsTask();
-            files = new FileSystemTasks();
-            serialization = new SerializationTasks();
-            info = new ReflectionTask();
-            shapes = new StyleCopShapesTasks();
-            excel = new ExcelTasks();
-            
+            this.structs = new StructsAndEnumsTasks();
+            this.exception = new ExceptionsTask();
+            this.files = new FileSystemTasks();
+            this.serialization = new SerializationTasks();
+            this.info = new ReflectionTask();
+            this.shapes = new StyleCopShapesTasks();
+            this.excel = new ExcelTasks();
+            this.calculator = new CalculatorTasks();
+           // this.thread = new AsynchronousTasks();
+
+
         }
         public  void RunTasks()
         {
@@ -42,6 +47,8 @@ namespace ConsoleApp
                 Console.WriteLine("\t5   - Reflection");
                 Console.WriteLine("\t6   - StypeCop");
                 Console.WriteLine("\t7   - ExcelTask1");
+                Console.WriteLine("\t8   - Calculator");
+               // Console.WriteLine("\t9   - AsynchronousProgramming");
                 Console.WriteLine("Your Option?");
                 string option = Console.ReadLine();
                 Console.WriteLine("\n");
@@ -79,9 +86,15 @@ namespace ConsoleApp
                     case "7":
                         excel.SearchUniqueValuesInExcelFileTask();
                         break;
+                    case "8":
+                        calculator.CalculatorTaskConsole();
+                        calculator.CalculatorTaskFile();
+                        break;
+                    //case "9":
+                    //    thread.RunThreading();
+                    //    break;
                     default:
                         break;
-                        //functions.Add(CalculatorTask);
                 }
                 Console.WriteLine("-----------------------------------------------------------------------------------");
                 
