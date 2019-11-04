@@ -15,7 +15,7 @@ namespace Reflection
 
         private string AssemblyName { get; set; }
 
-        public void GetAllInfo(IWriter writer)
+        public void GetAllInfo(IShowMemberInfo writer)
         {
             Assembly assembly = Assembly.LoadFrom(AssemblyName);
             writer.Show(0, "\tAssembly: {0}", assembly);
