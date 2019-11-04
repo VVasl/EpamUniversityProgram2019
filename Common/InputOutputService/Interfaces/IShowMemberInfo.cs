@@ -1,19 +1,13 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="IWriter.cs" company="Epam Lab">
+// <copyright file="IShowMemberInfo.cs" company="Epam Lab">
 // Copyright (c) Epam Lab. All rights reserved.
 // </copyright>
 // <author>Vasyltsiv Viktoriia</author>
 //-----------------------------------------------------------------------
 namespace Common
 {
-    public interface IWriter
+    public interface IShowMemberInfo 
     {
-        /// <summary>
-        /// Writes the specified data to the standard output stream.
-        /// </summary>
-        /// <param name="line">The value parameter.</param>
-        void Write(string line);
-
         /// <summary>
         /// Writes the specified data to the standard output stream.
         /// </summary>
