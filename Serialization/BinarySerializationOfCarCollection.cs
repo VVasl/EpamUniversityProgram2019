@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Serialization
@@ -28,17 +26,13 @@ namespace Serialization
         {
             IEnumerable<T> carCollection;
 
-            // Open the file containing the data that you want to deserialize.
             using (FileStream fs = new FileStream(DataFileofCars, FileMode.Open))
             {
                 BinaryFormatter formatter = new BinaryFormatter();
 
-                // Deserialize the collection from the file and 
-                // assign the reference to the local variable.
                 carCollection = (IEnumerable<T>)formatter.Deserialize(fs);
             }
             
-
             return carCollection;
         }
     }
