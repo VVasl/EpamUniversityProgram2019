@@ -46,7 +46,7 @@ namespace ConsoleApp
                 Console.WriteLine("\t4   - Serialization");
                 Console.WriteLine("\t5   - Reflection");
                 Console.WriteLine("\t6   - StypeCop");
-                Console.WriteLine("\t7   - ExcelTask1");
+                Console.WriteLine("\t7   - ExcelTasks");
                 Console.WriteLine("\t8   - Calculator");
                // Console.WriteLine("\t9   - AsynchronousProgramming");
                 Console.WriteLine("Your Option?");
@@ -85,6 +85,7 @@ namespace ConsoleApp
                         break;
                     case "7":
                         excel.SearchUniqueValuesInExcelFileTask();
+                        excel.SearchDuplicateAndUniqueFilesInDirectoriesTask();
                         break;
                     case "8":
                         calculator.CalculatorTaskConsole();
