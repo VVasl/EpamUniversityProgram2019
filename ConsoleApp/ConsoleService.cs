@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ConsoleApp
+﻿namespace ConsoleApp
 {
+    using System;
+
     public partial class ConsoleService : IConsoleService
     {
         private StructsAndEnumsTasks structs;
@@ -14,7 +12,7 @@ namespace ConsoleApp
         private StyleCopShapesTasks shapes;
         private ExcelTasks excel;
         private CalculatorTasks calculator;
-        //private AsynchronousTasks thread;
+        private AsynchronousTasks thread;
 
         public ConsoleService()
         {
@@ -26,7 +24,7 @@ namespace ConsoleApp
             this.shapes = new StyleCopShapesTasks();
             this.excel = new ExcelTasks();
             this.calculator = new CalculatorTasks();
-           // this.thread = new AsynchronousTasks();
+            this.thread = new AsynchronousTasks();
 
 
         }
@@ -48,7 +46,7 @@ namespace ConsoleApp
                 Console.WriteLine("\t6   - StypeCop");
                 Console.WriteLine("\t7   - ExcelTasks");
                 Console.WriteLine("\t8   - Calculator");
-               // Console.WriteLine("\t9   - AsynchronousProgramming");
+                Console.WriteLine("\t9   - AsynchronousProgramming");
                 Console.WriteLine("Your Option?");
                 string option = Console.ReadLine();
                 Console.WriteLine("\n");
@@ -91,9 +89,10 @@ namespace ConsoleApp
                         calculator.CalculatorTaskConsole();
                         calculator.CalculatorTaskFile();
                         break;
-                    //case "9":
-                    //    thread.RunThreading();
-                    //    break;
+                    case "9":
+                        thread.RunSequentialSumOfArrayTask();
+                        thread.RunParallelForTask();
+                        break;
                     default:
                         break;
                 }
