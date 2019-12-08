@@ -13,6 +13,7 @@
         private ExcelTasks excel;
         private CalculatorTasks calculator;
         private AsynchronousTasks thread;
+        private OneDriveExcelTask excelOneDrive;
 
         public ConsoleService()
         {
@@ -25,6 +26,7 @@
             this.excel = new ExcelTasks();
             this.calculator = new CalculatorTasks();
             this.thread = new AsynchronousTasks();
+            this.excelOneDrive = new OneDriveExcelTask();
 
 
         }
@@ -47,6 +49,7 @@
                 Console.WriteLine("\t7   - ExcelTasks");
                 Console.WriteLine("\t8   - Calculator");
                 Console.WriteLine("\t9   - AsynchronousProgramming");
+                Console.WriteLine("\t10   - OneDriveExcel");
                 Console.WriteLine("Your Option?");
                 string option = Console.ReadLine();
                 Console.WriteLine("\n");
@@ -92,6 +95,9 @@
                     case "9":
                         thread.RunSequentialSumOfArrayTask();
                         thread.RunParallelForTask();
+                        break;
+                    case "10":
+                        excelOneDrive.RunExcelTask();
                         break;
                     default:
                         break;
