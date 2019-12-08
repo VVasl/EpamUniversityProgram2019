@@ -17,7 +17,7 @@
                 UniqueValuesExcel excel = new UniqueValuesExcel(excelfile);
 
                 var watch = System.Diagnostics.Stopwatch.StartNew();
-                var countrylists = excel.GetLists(this.configuration["sheetForReading"], Int32.Parse(this.configuration["firstColumnToCompare"]), Int32.Parse(this.configuration["secondColumnToCompare"]));
+                var countrylists = excel.GetLists(this.configuration["sheetForReading"], Int32.Parse(this.configuration["firstColumnToCompare"]), Int32.Parse(this.configuration["secondColumnToCompare"]), FileSource.FileSystem);
                 watch.Stop();
                 this.writer.Write($"ReadListsFromFile Method. Time Taken-->{watch.ElapsedMilliseconds}");
 
