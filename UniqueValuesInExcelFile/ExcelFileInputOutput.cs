@@ -1,17 +1,20 @@
 ﻿namespace UniqueValuesInExcelFile
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using OfficeOpenXml;
     public static class ExcelFileInputOutput
     {
-        public static IEnumerable<string> ReadListFromFile(string excelFile, string sheetForReading, int columnToCompare)
+        public static IEnumerable<string> ReadListFromFile(string excelFile, string sheetForReading, int columnToCompare, FileSource source)
         {
             List<string> list = new List<string>() { };
 
-            using (ExcelPackage package = new ExcelPackage(new FileInfo(excelFile)))
+            using (ExcelPackage package = ExcelPackageSource.GetExcelPackageSource(excelFile, source))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets[sheetForReading];
+                if (worksheet == null)
+                    throw new ArgumentException("Sheet doesn't exist");
 
                 int rowCount = worksheet.Dimension.End.Row;
 
@@ -28,6 +31,8 @@
             using (var package = new ExcelPackage(new FileInfo(excelFile)))
             {
                 var worksheet = package.Workbook.Worksheets[sheetForWriting];
+                if (worksheet == null)
+                    throw new ArgumentException("Sheet doesn't exist");
 
                 int row = 1;
                 foreach (var item in list)

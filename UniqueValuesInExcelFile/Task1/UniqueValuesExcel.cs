@@ -26,10 +26,10 @@
             }
         }
 
-        public Tuple<HashSet<string>, HashSet<string>> GetLists(string sheetForReading, int firstColumnToCompare, int secondColumnToCompare)
+        public Tuple<HashSet<string>, HashSet<string>> GetLists(string sheetForReading, int firstColumnToCompare, int secondColumnToCompare, FileSource source)
         {
-            var countryListFirst = new HashSet<string>(ExcelFileInputOutput.ReadListFromFile(this.ExcelFile, sheetForReading, firstColumnToCompare));
-            var countryListSecond = new HashSet<string>(ExcelFileInputOutput.ReadListFromFile(this.ExcelFile, sheetForReading, secondColumnToCompare));
+            var countryListFirst = new HashSet<string>(ExcelFileInputOutput.ReadListFromFile(this.ExcelFile, sheetForReading, firstColumnToCompare, source));
+            var countryListSecond = new HashSet<string>(ExcelFileInputOutput.ReadListFromFile(this.ExcelFile, sheetForReading, secondColumnToCompare,source));
 
                 countryListFirst.UnionWith(countryListSecond); 
 
