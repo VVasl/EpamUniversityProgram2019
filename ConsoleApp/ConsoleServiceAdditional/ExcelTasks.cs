@@ -30,6 +30,7 @@
                 Boolean outputBool;
                 if (Boolean.TryParse(this.configuration["console"], out outputBool))
                 {
+                    Console.Write("");
                 }
 
                 if (outputBool)
@@ -47,6 +48,7 @@
                 watch.Start();
                 if (Boolean.TryParse(this.configuration["file"], out outputBool))
                 {
+                    Console.Write("");
                 }
 
                 if (outputBool)
@@ -89,6 +91,7 @@
                 Boolean outputBool;
                 if (Boolean.TryParse(this.configuration["console"], out outputBool))
                 {
+                    Console.Write("");
                 }
 
                 if (outputBool)
@@ -112,6 +115,7 @@
                 watch.Start();
                 if (Boolean.TryParse(this.configuration["file"], out outputBool))
                 {
+                    Console.Write("");
                 }
 
                 if (outputBool)

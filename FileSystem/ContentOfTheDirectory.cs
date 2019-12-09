@@ -17,30 +17,23 @@ namespace FileSystem
 
         public void ShowAllDirectoryAndSubdirectoriesFiles(string sourceDirectory, IWriter writer)
         {
-            try
+            string[] files = Directory.GetFiles(sourceDirectory);
+            foreach (string file in files)
             {
-                string[] files = Directory.GetFiles(sourceDirectory);
-                foreach (string file in files)
-                {
-                    writer.Write($"\tFile: {file}");
-                }
-                
-                string[] subDirectories = Directory.GetDirectories(sourceDirectory);
-                int counter = 0;
-                foreach (string subDirectory in subDirectories)
-                {
-                    writer.Write($"Subdirectory: {subDirectory}");
-
-                    counter++;
-                    if (counter <= MaxRecursiveCalls)
-                        ShowAllDirectoryAndSubdirectoriesFiles(subDirectory, writer);
-                    else
-                        throw new StackOverflowException("Detected unhandled exception: Stack overflow.");
-                }
+                writer.Write($"\tFile: {file}");
             }
-            catch (DirectoryNotFoundException)
+
+            string[] subDirectories = Directory.GetDirectories(sourceDirectory);
+            int counter = 0;
+            foreach (string subDirectory in subDirectories)
             {
-                throw;
+                writer.Write($"Subdirectory: {subDirectory}");
+
+                counter++;
+                if (counter <= MaxRecursiveCalls)
+                    ShowAllDirectoryAndSubdirectoriesFiles(subDirectory, writer);
+                else
+                    throw new StackOverflowException("Detected unhandled exception: Stack overflow.");
             }
         }
     }

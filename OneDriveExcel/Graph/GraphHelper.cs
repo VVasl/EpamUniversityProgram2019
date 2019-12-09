@@ -5,7 +5,7 @@
     using System.Threading.Tasks;
     using Microsoft.Graph;
 
-    public class GraphHelper
+    public static class GraphHelper
     {
         private static GraphServiceClient graphClient;
         public static void Initialize(IAuthenticationProvider authProvider)

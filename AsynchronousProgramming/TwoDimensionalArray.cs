@@ -4,8 +4,8 @@
 
     public class TwoDimensionalArray
     {
-        private int rows;
-        private int columns;
+        private readonly int rows;
+        private readonly int columns;
 
         public TwoDimensionalArray(int rows, int columns, ISum sum)
         {

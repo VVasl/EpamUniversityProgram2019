@@ -5,7 +5,7 @@
 
      public class Circles : IShapes<Circle>
      {
-        private IWriter writer;
+        private readonly IWriter writer;
 
         public Circles(Circle shapeOne, Circle shapeTwo)
         {

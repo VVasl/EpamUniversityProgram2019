@@ -5,7 +5,7 @@
 
     public class ReflectionTask : Tasks
     {
-        private IShowMemberInfo memberWriter;
+        private readonly IShowMemberInfo memberWriter;
 
         public ReflectionTask()
         {

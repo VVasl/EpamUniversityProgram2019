@@ -13,7 +13,7 @@
         /// <typeparam name="Implementation">Implementing class</typeparam>
         public bool Register<Interface, Implementation>()
         {
-            return Register<Interface, Implementation>(ServiceLifetime.Transient); ;
+            return Register<Interface, Implementation>(ServiceLifetime.Transient); 
         }
 
         /// <summary>

@@ -5,7 +5,7 @@ namespace Logger
 {
     class ConsoleLog : Log
     {
-        private IWriter writer;
+        private readonly IWriter writer;
 
         public ConsoleLog(LogLevel level, string message) : base(level, message)
         {

@@ -16,26 +16,19 @@ namespace FileSystem
         public string PartialNameOfFile { get; set; }
 
         public void SearchTxtFiles( IWriter writer)
-        { 
-            try
-            {
-                var txtFiles = Directory.EnumerateFiles(SourceDirectory, "*.txt", SearchOption.AllDirectories);
+        {
+            var txtFiles = Directory.EnumerateFiles(SourceDirectory, "*.txt", SearchOption.AllDirectories);
 
-                foreach (string currentFile in txtFiles)
+            foreach (string currentFile in txtFiles)
+            {
+                if (currentFile.Contains(PartialNameOfFile, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    if (currentFile.Contains(PartialNameOfFile, StringComparison.CurrentCultureIgnoreCase)){
-                        writer.Write($"\tFile: {currentFile}");
-                    }
-                    else
-                    {
-                        throw new FileNotFoundException("File not found");
-                    }
+                    writer.Write($"\tFile: {currentFile}");
                 }
-             }
-
-            catch (DirectoryNotFoundException)
-            {
-                throw;
+                else
+                {
+                    throw new FileNotFoundException("File not found");
+                }
             }
         }
     }

@@ -29,7 +29,7 @@
                     2 => Calculator.Calculate(firstNumber, secondNumber, Calculator.Subtract),
                     3 => Calculator.Calculate(firstNumber, secondNumber, Calculator.Multiply),
                     4 => Calculator.Calculate(firstNumber, secondNumber, Calculator.Divide),
-                    _ => throw new ArgumentException(message: "invalid value", paramName: nameof(option))
+                    _ => throw new ArgumentException($"invalid value : {option}")
                 };
                 this.writer.Write($"The result of calculation : {calculationResult}\n\n");
             }
@@ -70,7 +70,7 @@
                     2 => Calculator.Calculate(firstNumber, secondNumber, Calculator.Subtract),
                     3 => Calculator.Calculate(firstNumber, secondNumber, Calculator.Multiply),
                     4 => Calculator.Calculate(firstNumber, secondNumber, Calculator.Divide),
-                    _ => throw new ArgumentException(message: "invalid value", paramName: nameof(option))
+                    _ => throw new ArgumentException($"invalid value : {option}")
                 };
 
                 this.writer.Write($"The result of calculation : {calculationResult}\n");

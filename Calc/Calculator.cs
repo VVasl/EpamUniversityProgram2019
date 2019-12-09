@@ -5,7 +5,7 @@ namespace Calc
     using Common;
     public class Calculator
     {
-        private IInputOutput type;
+        private readonly IInputOutput type;
         public Calculator(IInputOutput type)
         {
             this.type = type;

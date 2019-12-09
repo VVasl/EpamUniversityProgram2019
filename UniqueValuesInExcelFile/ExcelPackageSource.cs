@@ -4,7 +4,7 @@
     using System.IO;
     using OfficeOpenXml;
     using OneDriveExcel;
-    class ExcelPackageSource
+    static class ExcelPackageSource
     {
         public static ExcelPackage GetExcelPackageSource(string excelFile, FileSource source)
         {

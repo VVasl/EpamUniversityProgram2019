@@ -43,10 +43,6 @@ namespace Common
 
             using (StreamReader r = new StreamReader(this.InputFile))
             {
-                // while ((line = r.ReadLine()) != null)
-                //{
-                //Console.WriteLine(line);
-                //}
                 line = r.ReadToEnd();
             }
 

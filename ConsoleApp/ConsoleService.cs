@@ -4,16 +4,16 @@
 
     public partial class ConsoleService : IConsoleService
     {
-        private StructsAndEnumsTasks structs;
-        private ExceptionsTask exception;
-        private FileSystemTasks files;
-        private SerializationTasks serialization;
-        private ReflectionTask info;
-        private StyleCopShapesTasks shapes;
-        private ExcelTasks excel;
-        private CalculatorTasks calculator;
-        private AsynchronousTasks thread;
-        private OneDriveExcelTask excelOneDrive;
+        private readonly StructsAndEnumsTasks structs;
+        private readonly ExceptionsTask exception;
+        private readonly FileSystemTasks files;
+        private readonly SerializationTasks serialization;
+        private readonly ReflectionTask info;
+        private readonly StyleCopShapesTasks shapes;
+        private readonly ExcelTasks excel;
+        private readonly CalculatorTasks calculator;
+        private readonly AsynchronousTasks thread;
+        private readonly OneDriveExcelTask excelOneDrive;
 
         public ConsoleService()
         {

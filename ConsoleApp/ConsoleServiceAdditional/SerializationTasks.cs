@@ -7,7 +7,7 @@
 
     public class SerializationTasks : Tasks
     {
-        private IEnumerable<Car> car = new List<Car>{
+        private readonly IEnumerable<Car> car = new List<Car>{
                 new Car{ BrandName = "Mercedes", ModelYear = 2016, Price = 40000, CountryOfCarProducing = "Germany" },
                 new Car{ BrandName = "Toyota", ModelYear = 2012, Price = 10000, CountryOfCarProducing = "Japan" }
             };

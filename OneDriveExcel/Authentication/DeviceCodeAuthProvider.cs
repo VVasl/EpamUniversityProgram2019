@@ -9,15 +9,15 @@
 
     public class DeviceCodeAuthProvider : IAuthenticationProvider
     {
-        private IPublicClientApplication _msalClient;
-        private string[] _scopes;
-        private IAccount _userAccount;
+        private readonly IPublicClientApplication msalClient;
+        private readonly string[] scopes;
+        private  IAccount userAccount;
 
         public DeviceCodeAuthProvider(string appId, string[] scopes)
         {
-            _scopes = scopes;
+            this.scopes = scopes;
 
-            _msalClient = PublicClientApplicationBuilder
+            this.msalClient = PublicClientApplicationBuilder
                 .Create(appId)
                 .WithTenantId("organizations")
                 .Build();
@@ -25,16 +25,16 @@
 
         public async Task<string> GetAccessToken()
         {
-            if (_userAccount == null)
+            if (userAccount == null)
             {
                 try
                 {
-                    var result = await _msalClient.AcquireTokenWithDeviceCode(_scopes, callback => {
+                    var result = await msalClient.AcquireTokenWithDeviceCode(scopes, callback => {
                         Console.WriteLine(callback.Message);
                         return Task.FromResult(0);
                     }).ExecuteAsync();
 
-                    _userAccount = result.Account;
+                    userAccount = result.Account;
                     return result.AccessToken;
                 }
                 catch (Exception exception)
@@ -45,17 +45,17 @@
             }
             else
             {
-                var result = await _msalClient
-                    .AcquireTokenSilent(_scopes, _userAccount)
+                var result = await msalClient
+                    .AcquireTokenSilent(scopes, userAccount)
                     .ExecuteAsync();
 
                 return result.AccessToken;
             }
         }
 
-        public async Task AuthenticateRequestAsync(HttpRequestMessage requestMessage)
+        public async Task AuthenticateRequestAsync(HttpRequestMessage request)
         {
-            requestMessage.Headers.Authorization =
+            request.Headers.Authorization =
                 new AuthenticationHeaderValue("bearer", await GetAccessToken());
         }
     }

@@ -9,14 +9,14 @@ namespace ConsoleApp
     public abstract class Tasks
     {
         public IWriter writer;
-        public static Logger logger;
+        public Logger logger;
         public readonly IConfigurationRoot configuration;
 
-        public Tasks()
+        protected Tasks()
         {
             this.writer = new ConsoleInputOutput();
 
-            logger = LogManager.GetCurrentClassLogger();
+            this.logger = LogManager.GetCurrentClassLogger();
 
             this.configuration = new ConfigurationBuilder()
            .SetBasePath(Directory.GetCurrentDirectory())

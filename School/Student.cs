@@ -15,7 +15,7 @@
             set
             {
                 if (value == null)
-                    throw new ArgumentNullException("Name");
+                    throw new ArgumentNullException($"{Name}");
 
                 this.name = value;
             }
@@ -28,7 +28,7 @@
             set
             {
                 if (!(MinId <= value && value <= MaxId))
-                    throw new ArgumentOutOfRangeException("Id");
+                    throw new ArgumentOutOfRangeException($"{Id}");
 
                 this.id = value;
             }
